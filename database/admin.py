@@ -7,5 +7,9 @@ from .models import *
 class QuoteAdmin(admin.ModelAdmin):
     list_display = ('id', 'Quote', 'Author')
 
+class DailyTasksAdmin(admin.ModelAdmin):
+    list_display = ('task_date', 'title', 'status')
 
-admin.site.register(Quote,QuoteAdmin)
+
+admin.site.register(Quote, QuoteAdmin)
+admin.site.register(DailyTasks, DailyTasksAdmin)

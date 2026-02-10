@@ -4,4 +4,5 @@ from . import views
 
 urlpatterns = [
     path('api/quote/', views.Quote_list_api),
+    path('api/dailytask/', views.task_list_api),
 ]
