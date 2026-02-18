@@ -12,3 +12,10 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = DailyTasks
         fields = "__all__"
+
+class ComplteTasksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ComplteTasks
+        fields = '__all__'
+
+
