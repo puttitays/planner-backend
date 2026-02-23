@@ -8,7 +8,7 @@ class QuoteAdmin(admin.ModelAdmin):
     list_display = ('id', 'Quote', 'Author')
 
 class DailyTasksAdmin(admin.ModelAdmin):
-    list_display = ('task_date', 'title', 'status')
+    list_display = ('id','task_date', 'title', 'status')
 
 
 class ComplteTasksAdmin(admin.ModelAdmin):

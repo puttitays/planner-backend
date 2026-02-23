@@ -2,8 +2,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import *
 from .serializers import QuoteSerializer, TaskSerializer,ComplteTasksSerializer
-
-
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 # Create your views here.
 @api_view(['GET'])
 def Quote_list_api(request):
@@ -29,5 +30,16 @@ def task_list_api(request):
     if request.method == 'GET':
         tasks = DailyTasks.objects.all()
         serializer = TaskSerializer(tasks,many=True)
+
         return Response(serializer.data)
 
+
+@csrf_exempt
+def updated_task(request,pk):
+    if request.method == 'PATCH':
+        data=json.loads(request.body)
+        task=DailyTasks.objects.get(id=pk)
+        task.status=data["status"]
+        task.save()
+        return JsonResponse({"message": "updated"})
+    return JsonResponse({"error": "Method not allowed"}, status=405)
