@@ -1,4 +1,6 @@
 from django.db import models
+from django.forms import DateField
+
 
 # Create your models here.
 
@@ -28,4 +30,12 @@ class ComplteTasks(models.Model):
     def __str__(self):
         return self.title
 
+
+class MonthlyGoals(models.Model):
+    status_choices = [("on progress","On progress"),("completed","Completed")]
+    month=models.DateField()
+    title=models.CharField(max_length=200)
+    status = models.CharField(max_length=200, choices=status_choices, default="on progress")
+    def __str__(self):
+        return self.title
 

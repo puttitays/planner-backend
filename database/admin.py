@@ -14,7 +14,9 @@ class DailyTasksAdmin(admin.ModelAdmin):
 class ComplteTasksAdmin(admin.ModelAdmin):
     list_display = ('task_date', 'title', 'status')
 
-
+class MonthlyGoalsAdmin(admin.ModelAdmin):
+    list_display = ('month', 'title', 'status')
 admin.site.register(Quote, QuoteAdmin)
 admin.site.register(DailyTasks, DailyTasksAdmin)
 admin.site.register(ComplteTasks, ComplteTasksAdmin)
+admin.site.register(MonthlyGoals, MonthlyGoalsAdmin)

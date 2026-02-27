@@ -19,3 +19,7 @@ class ComplteTasksSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class MonthlyGoalsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MonthlyGoals
+        fields = '__all__'

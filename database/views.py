@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import *
-from .serializers import QuoteSerializer, TaskSerializer,ComplteTasksSerializer
+from .serializers import *
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -11,6 +11,16 @@ def Quote_list_api(request):
     Quotes= Quote.objects.all()
     serializer = QuoteSerializer(Quotes, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def Monthly_Goal(request):
+    Monthly_Goal= MonthlyGoals.objects.all()
+    serializer = MonthlyGoalsSerializer(Monthly_Goal, many=True)
+    return Response(serializer.data)
+
+
+
 
 
 
